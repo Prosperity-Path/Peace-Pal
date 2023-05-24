@@ -1,6 +1,7 @@
 import requests
 from difflib import SequenceMatcher
 from peace_snippets import daily_exercises, emotion_responses
+from email import utils
 
 
 class Content:
@@ -16,6 +17,15 @@ class Content:
         Every day- I'll send you a tool to help you manage the feelings that are limiting your peace. 
         Feel free to message me whenever you're not feeling at peace, and I'll do my best to share something helpful.
         '''
+    def schedule_trigger(self, date_time, to):
+        formatted_dt = utils.format_datetime(date_time)
+        schedule_url = self.pdk_url + "/schedule"
+        payload = {
+            "dateTime": formatted_dt,
+            "to": to
+        }
+        res = requests.post(schedule_url, json=payload)
+        return res
 
     def handle_reply(self):
         #TODO: stop logic to call PDK

@@ -13,19 +13,21 @@ class Content:
         return '''
         Hi, I'm Peace Pal.
         Together- we're going to find more inner peace.
-        To get started, please reply with the following feelings that disrupt your peace the most:
-        Every day- I'll send you a tool to help you manage the feelings that are limiting your peace. 
+        Every day- I'll send you an exercise to help you manage the feelings that are limiting your peace. 
         Feel free to message me whenever you're not feeling at peace, and I'll do my best to share something helpful.
+        \n\n\n 
+        ______
+        If you're confused at any time, just reply 'help'
         '''
-    def schedule_trigger(self, date_time, to):
+    def schedule_message(self, date_time, payload):
         formatted_dt = utils.format_datetime(date_time)
         schedule_url = self.pdk_url + "/schedule"
         payload = {
             "dateTime": formatted_dt,
-            "to": to
+            "msg": payload
         }
         res = requests.post(schedule_url, json=payload)
-        return res
+        return 'OK'
 
     def handle_reply(self):
         #TODO: stop logic to call PDK

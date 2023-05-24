@@ -35,5 +35,20 @@ emotion_responses = [
     },
     {
         "emotion":"remorse", "response":"The compounding of negative cognition starting for a core thought."
+    },
+    {
+        "emotion":"annoyance", "response":"If you're annoyed, you're just triggered by something that bothers you about yourself that you see in someone else."
+    },
+    {
+        "emotion":"confusion", "response":"Being confused is natural when you're encountering something outside the scope of your expected understanding. You should adjust your expectations to being open to learning instead of expecting to have something meet your paradigm set."
+    },
+    {
+        "emotion":"disgust", "response":"Being disgusted is a severe emotion that starts with you deeply judging yourself and projecting that on to someone else."
+    },
+    {
+        "emotion":"embarassment", "response":"The only way you can be embarassed is if you hang your validation and self worth on the opinions of others. This is not a sustainable strategy."
+    },
+    {
+        "emotion":"neutral", "response":"Sometimes emotions hit us and we don't really understand why. We can choose to dwell on them or focus all our energy on something more productive."
     }
 ]

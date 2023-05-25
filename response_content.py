@@ -55,8 +55,11 @@ class Content:
 
     def emotion_response(self, emotion_label):
         matched_responses = [er for er in emotion_responses if er['emotion'] == emotion_label]
-        match = matched_responses[0]
-        return match['response'] if match else 'not found'
+        if len(matched_responses) > 0:
+            res = matched_responses[0]['response']
+        else:
+            res = "I'm still learning. Check back soon."
+        return res
             
     def pick_scheduled_exercise(self):
         prev_msg_data = self.req_message_data()

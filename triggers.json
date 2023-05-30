@@ -1,0 +1,26 @@
+{
+    "appAddress": "peace.pal",
+    "triggers":
+    [
+        {
+            "testInput": "Hi- would like to try",
+            "description": "initally asks user about what is going to be most valuable to them.",
+            "trigger": "first-message"
+        },
+        {
+            "testInput": "Im feeling frustrated that people dont understand my art",
+            "description": "assesses new message from user",
+            "trigger": "new-message"
+        },
+        {
+            "testInput": "help",
+            "description": "process a reply to an existing message",
+            "trigger": "reply"
+        },
+        {
+            "description": "runs process at scheduled time",
+            "trigger": "schedule",
+            "schedule": "0 8 * * *"
+        }
+    ]
+}

@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from response_content import Content
 from emotion_model import PredictEmotion
 import datetime
+import json
 
 class Message(BaseModel):
     messageId: str
@@ -17,6 +18,13 @@ class Reply(Message):
 app = FastAPI()
 
 emotion_model = PredictEmotion()
+
+@app.get("/")
+async def test_health():
+    f = open('triggers.json')
+    data = json.load(f)
+    f.close()
+    return data
 
 @app.post("/first-message")
 async def intro_reply(message: Message, request: Request):

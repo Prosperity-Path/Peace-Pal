@@ -13,7 +13,8 @@ daily_exercises = [
 
         "Humans are wired to experience anxiety as a survival mechanism. We're always trying to plan for the worst case scenario as a means to ensuring we have our needs met for survival. But in a world where it's so easy to meet our needs for survival, we forget about our needs and replace them with wants. As a consquence, we stress about not gettings our wants met. So today, write what you actually NEED so you can start to strip power from the self-induced stress of imagining not getting what you want.",
 
-        " There are no cases where worrying about something that hasn't happened yet is more productive than taking action towards your desired outcome. Today, pick one thing you're anxious about, and instead worrying, write down the smallest action that moves you towards the desired outcome. "
+        " There are no cases where worrying about something that hasn't happened yet is more productive than taking action towards your desired outcome. Today, pick one thing you're anxious about, and instead worrying, write down the smallest action that moves you towards the desired outcome. ",
+    "Judging others always shows us where we have insecurities that our subconscious is demanding we pay attention to in hopes of finding resolution. Today, think about what you look at when you first meet someone. Do you look at their clothes or maybe their weight? Whatever you look at, those are likely to be the things you're most insecure about. Write down the thing you judge others on most and one way you can make progress on your own security around that attribute."
 ]
 
 emotion_responses = [

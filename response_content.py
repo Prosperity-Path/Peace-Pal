@@ -1,4 +1,3 @@
-import requests
 from difflib import SequenceMatcher
 from peace_snippets import daily_exercises, emotion_responses
 from email import utils
@@ -7,7 +6,6 @@ from email import utils
 class Content:
     def __init__(self, message, request):
         self.message = message
-        self.pdk_url = request.headers['PDK-URL']
 
     def intro_message():
         return '''
@@ -19,15 +17,6 @@ class Content:
         ______
         If you're confused at any time, just reply 'help'
         '''
-    def schedule_message(self, date_time, payload):
-        formatted_dt = utils.format_datetime(date_time)
-        schedule_url = self.pdk_url + "/schedule"
-        payload = {
-            "dateTime": formatted_dt,
-            "msg": payload
-        }
-        res = requests.post(schedule_url, json=payload)
-        return 'OK'
 
     def handle_reply(self):
         #TODO: stop logic to call PDK
@@ -41,13 +30,6 @@ class Content:
             print('Unhandled reply')
             pass
     
-    def req_message_data(self):
-        # The inbound message on self.message is to
-        # our app, and we want outbound messages to
-        # see what we've sent
-        q_str = "/messages?recipient=" + self.message.recipient
-        res = requests.get(self.pdk_url + q_str)
-        return res.json()
 
     def similar(self, str_a, str_b):
         similarity = SequenceMatcher(None, str_a, str_b).ratio()
@@ -61,14 +43,11 @@ class Content:
             res = "I'm still learning. Check back soon."
         return res
             
-    def pick_scheduled_exercise(self):
-        prev_msg_data = self.req_message_data()
-        prev_sent_msgs = [m['message'] for m in prev_msg_data]
-        print("PREV SENT MSGS: ", prev_sent_msgs)
+    def pick_scheduled_exercise(self, prev_messages):
         #TODO: use similarity search to allow for some 
         #changes in exercises text
-        unsent_exercises = list(set(daily_exercises) - set(prev_sent_msgs))
-        print("\n UNSENT EXERCISES", unsent_exercises)
+        unsent_exercises = list(set(daily_exercises) - set(prev_messages))
+        print("\n EXERCISE TO SEND", unsent_exercises[0])
         
         return unsent_exercises[0]
 

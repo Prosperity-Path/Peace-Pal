@@ -10,7 +10,7 @@ Then, to get started, install the required packages in `requirements.txt`. Feel 
 ```
 pip install -r requirements.txt
 ```
-The core requirement to make an app that uses the PDK is to have a REST API with 4 post end points. This app's API uses [Fast API](https://github.com/tiangolo/fastapi).
+The core requirement to make an app that uses the PDK is to have a REST API with 4 POST endpoints and 1 GET endpoint. This app's API uses [Fast API](https://github.com/tiangolo/fastapi).
 In order to run the app in development, we'll need to install [uvicorn](https://www.uvicorn.org/) with `pip install uvicorn`.
 ```
 uvicorn main:app --reload --port 8080
